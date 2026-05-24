@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', Roboto, sans-serif;
     background: radial-gradient(circle at center, #1a103c 0%, #070412 100%);
     color: #ffffff;
     display: flex;
@@ -16,40 +16,54 @@ body {
 }
 
 .game-card {
-    position: relative;
     background: rgba(20, 14, 46, 0.85);
     border: 2px solid #ff007f;
     padding: 40px 30px;
     border-radius: 30px;
-    box-shadow: 0 0 40px rgba(255, 0, 127, 0.3), inset 0 0 20px rgba(0, 242, 254, 0.1);
+    box-shadow: 0 0 40px rgba(255, 0, 127, 0.3);
     text-align: center;
     width: 100%;
     max-width: 380px;
     backdrop-filter: blur(10px);
 }
 
-.score-board {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #00f2fe;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
 .timer {
-    font-size: 48px;
+    font-size: 54px;
     font-weight: 900;
     color: #00f2fe;
     text-shadow: 0 0 15px #00f2fe;
-    margin-bottom: 20px;
-    transition: all 0.3s;
+    margin-bottom: 25px;
 }
 
 .timer.danger {
     color: #ff0055;
     text-shadow: 0 0 20px #ff0055;
     animation: blink 0.5s infinite alternate;
+}
+
+/* Стили инпута */
+.input-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border: 2px solid #3d376a;
+    border-radius: 16px;
+    background: #0f0a26;
+    color: #fff;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
 }
 
 h1 {
@@ -60,8 +74,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     word-break: break-word;
 }
@@ -79,7 +91,7 @@ button {
     border: none;
     border-radius: 16px;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -90,35 +102,22 @@ button {
     box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
 }
 
-.btn-main:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 0, 127, 0.6);
-}
-
 .btn-action {
     background: #1f1b40;
     color: #00f2fe;
     border: 1px solid #00f2fe;
-    box-shadow: 0 4px 10px rgba(0, 242, 254, 0.1);
 }
 
-.btn-action:hover:not(:disabled) {
+.btn-action:hover {
     background: #00f2fe;
     color: #1a103c;
     box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
 }
 
-button:active:not(:disabled) {
-    transform: translateY(1px);
-}
-
-button:disabled {
-    background: #131026;
-    border-color: #3d376a;
-    color: #4a437e;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none !important;
+.btn-reset {
+    background: #ff0055;
+    color: white;
+    margin-top: 10px;
 }
 
 @keyframes blink {
